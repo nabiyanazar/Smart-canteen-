@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SmartCanteen — a simple, fast and convenient college canteen pre-ordering system.">
+<title>SmartCanteen | Order Ahead, Eat Happier</title>
+<style>
+:root{--green:#16856b;--green-dark:#0d5f4d;--mint:#e9f7f1;--ink:#182521;--muted:#687772;--line:#e4ece8;--white:#fff;--orange:#ffb45d;--shadow:0 18px 50px rgba(18,75,58,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fbfdfc}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}.container{width:min(1140px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.91);backdrop-filter:blur(14px);border-bottom:1px solid rgba(228,236,232,.8)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.25rem;letter-spacing:-.6px}.brand-mark{width:40px;height:40px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:22px;box-shadow:0 7px 16px #16856b35}.brand span span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:28px;color:#56645f;font-size:.92rem}.nav-links a:hover{color:var(--green)}.nav-actions{display:flex;gap:10px;align-items:center}.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:750;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn-primary{background:var(--green);color:white;box-shadow:0 8px 20px #16856b25}.btn-primary:hover{background:var(--green-dark);transform:translateY(-1px)}.btn-light{background:#f0f6f3;color:var(--green-dark)}.menu-toggle{display:none;border:0;background:transparent;font-size:25px}
+.hero{padding:74px 0 65px;overflow:hidden;background:radial-gradient(circle at 83% 25%,#dff5e9 0,transparent 27%),linear-gradient(180deg,#fff 0%,#f7fcf9 100%)}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#e9f7f1;color:var(--green-dark);padding:8px 12px;border-radius:999px;font-weight:750;font-size:.79rem;letter-spacing:.3px}.dot{height:7px;width:7px;border-radius:50%;background:#20a878}.hero h1{font-size:clamp(2.8rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-3px;margin:22px 0 20px;max-width:650px}.hero h1 em{font-style:normal;color:var(--green)}.hero p{color:var(--muted);font-size:1.08rem;line-height:1.8;max-width:560px}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.trust-row{display:flex;gap:20px;align-items:center;margin-top:32px;color:var(--muted);font-size:.88rem;flex-wrap:wrap}.trust-row strong{color:var(--ink)}.check{color:var(--green);font-weight:900}
+.visual{position:relative;min-height:450px;display:grid;place-items:center}.blob{position:absolute;width:370px;height:370px;border-radius:48% 52% 55% 45%;background:#dff3e8;transform:rotate(-10deg)}.food-card{position:relative;width:min(390px,100%);background:#fff;border:1px solid #e8f0eb;border-radius:26px;padding:20px;box-shadow:var(--shadow);transform:rotate(2deg)}.food-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.food-top small{color:var(--muted)}.status{background:#e7f8ef;color:#16856b;font-size:.75rem;font-weight:800;border-radius:99px;padding:7px 10px}.food-photo{height:190px;border-radius:19px;background:linear-gradient(135deg,#ffdca4,#f8a46a);display:grid;place-items:center;font-size:100px;position:relative;overflow:hidden}.food-photo:after{content:"";position:absolute;width:220px;height:220px;border:2px solid #fff8;border-radius:50%}.food-info{display:flex;justify-content:space-between;gap:15px;align-items:center;margin:17px 0}.food-info h3{margin:0 0 5px;font-size:1.1rem}.food-info p{font-size:.83rem;margin:0}.price{font-weight:850;color:var(--green);font-size:1.1rem}.order-line{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:15px}.mini-btn{border:0;background:var(--green);color:#fff;padding:10px 13px;border-radius:10px;font-weight:750}.float-note{position:absolute;background:#fff;border-radius:16px;padding:13px 16px;box-shadow:var(--shadow);font-size:.84rem;font-weight:750;display:flex;align-items:center;gap:10px}.float-note span{font-size:24px}.note-one{top:55px;right:-8px}.note-two{bottom:48px;left:-10px}
+.stats{padding:26px 0 42px}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.stat{background:#fff;border:1px solid var(--line);padding:20px;border-radius:16px;text-align:center}.stat strong{font-size:1.55rem;color:var(--green);display:block}.stat span{color:var(--muted);font-size:.88rem}
+section{padding:72px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 38px}.section-head .eyebrow{margin-bottom:13px}.section-head h2{font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-1.5px;margin:8px 0 13px}.section-head p{color:var(--muted);line-height:1.75;margin:0}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{padding:25px;background:white;border:1px solid var(--line);border-radius:20px;transition:.2s}.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.feature-icon{height:50px;width:50px;border-radius:15px;background:var(--mint);display:grid;place-items:center;font-size:24px;margin-bottom:20px}.feature h3{margin:0 0 10px;font-size:1.08rem}.feature p{margin:0;color:var(--muted);line-height:1.7;font-size:.94rem}
+.menu-section{background:#f2faf6}.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.menu-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}.menu-image{height:160px;display:grid;place-items:center;font-size:72px}.bg1{background:#ffeed6}.bg2{background:#e6f5df}.bg3{background:#ffe3df}.menu-content{padding:18px}.menu-content h3{margin:0 0 7px}.menu-content p{margin:0;color:var(--muted);font-size:.87rem}.menu-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:17px}.menu-bottom strong{color:var(--green);font-size:1.05rem}.add-btn{border:0;background:var(--mint);color:var(--green-dark);width:35px;height:35px;border-radius:11px;font-size:22px;font-weight:700}.menu-bottom button:hover{background:var(--green);color:#fff}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.step{text-align:center;padding:10px 18px}.step-number{width:56px;height:56px;border-radius:18px;background:var(--green);color:#fff;font-weight:850;font-size:1.2rem;display:grid;place-items:center;margin:0 auto 18px;box-shadow:0 8px 20px #16856b30}.step h3{margin:0 0 9px}.step p{color:var(--muted);line-height:1.7;margin:0}
+.cta{padding:0 0 80px}.cta-panel{background:var(--green-dark);color:#fff;border-radius:28px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:25px;position:relative;overflow:hidden}.cta-panel:after{content:"";position:absolute;width:270px;height:270px;border:1px solid #ffffff25;border-radius:50%;right:18%;top:-160px}.cta-panel h2{font-size:clamp(1.8rem,3.5vw,2.7rem);letter-spacing:-1px;margin:0 0 10px;position:relative;z-index:1}.cta-panel p{margin:0;color:#d5e9e2;line-height:1.6;position:relative;z-index:1}.cta-panel .btn{background:#fff;color:var(--green-dark);white-space:nowrap;position:relative;z-index:1}
+footer{border-top:1px solid var(--line);padding:27px 0;color:var(--muted);font-size:.87rem}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.footer-row strong{color:var(--ink)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#182521;color:#fff;padding:13px 18px;border-radius:12px;box-shadow:var(--shadow);transition:.25s;z-index:30;font-size:.9rem}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:850px){.nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:22px 4%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:18px}.nav-links.open{display:flex}.menu-toggle{display:block}.nav-actions .btn-light{display:none}.hero{padding-top:48px}.hero-grid{grid-template-columns:1fr;gap:20px}.hero h1{letter-spacing:-2px}.visual{min-height:400px}.food-card{max-width:370px}.note-one{right:3%}.note-two{left:3%}.features,.menu-grid{grid-template-columns:repeat(2,1fr)}.feature:last-child,.menu-card:last-child{grid-column:auto}.cta-panel{padding:35px;align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.nav{height:68px}.nav-links{top:68px}.brand{font-size:1.1rem}.brand-mark{width:36px;height:36px}.nav-actions .btn-primary{padding:10px 12px;font-size:.84rem}.hero h1{font-size:2.8rem}.hero p{font-size:1rem}.visual{min-height:360px}.blob{width:290px;height:290px}.food-card{padding:15px;border-radius:22px}.food-photo{height:150px;font-size:80px}.float-note{font-size:.75rem;padding:10px}.note-one{top:15px}.note-two{bottom:15px}.stats-grid{gap:8px}.stat{padding:15px 8px}.stat strong{font-size:1.2rem}.stat span{font-size:.76rem}.features,.menu-grid,.how-grid{grid-template-columns:1fr}.feature{padding:22px}.menu-image{height:150px}.section-head{margin-bottom:28px}section{padding:55px 0}.cta{padding-bottom:55px}.cta-panel{padding:27px 23px}.footer-row{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand"><span class="brand-mark">🍃</span><span>Smart<span>Canteen</span></span></a>
+    <nav class="nav-links" id="navLinks"><a href="#home">Home</a><a href="#features">Features</a><a href="#menu">Popular menu</a><a href="#how">How it works</a></nav>
+    <div class="nav-actions"><a class="btn btn-light" href="#menu">Explore menu</a><a class="btn btn-primary" href="#menu">Order now <span>↗</span></a><button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button></div>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <div class="eyebrow"><span class="dot"></span> YOUR CAMPUS, MADE EASIER</div>
+   <h1>Good food.<br><em>Zero queue.</em><br>More time.</h1>
+   <p>Your college canteen, just a click away. Browse the menu, order in advance, and collect your food when it’s ready — without the long wait.</p>
+   <div class="hero-buttons"><a href="#menu" class="btn btn-primary">Explore the menu <span>→</span></a><a href="#how" class="btn btn-light">How it works <span>↗</span></a></div>
+   <div class="trust-row"><span><span class="check">✓</span> Easy pre-ordering</span><span><span class="check">✓</span> Live order updates</span><span><span class="check">✓</span> Student-friendly</span></div>
+  </div>
+  <div class="visual" aria-label="Food order preview">
+   <div class="blob"></div>
+   <div class="food-card">
+    <div class="food-top"><div><strong>Today's pick</strong><br><small>Fresh from the canteen</small></div><span class="status">● Available</span></div>
+    <div class="food-photo">🍛</div>
+    <div class="food-info"><div><h3>Kerala Meals</h3><p>Homely, filling and fresh</p></div><span class="price">₹70</span></div>
+    <div class="order-line"><small>⏱ Ready in about 10–15 min</small><button class="mini-btn" onclick="addItem('Kerala Meals')">＋ Add</button></div>
+   </div>
+   <div class="float-note note-one"><span>⚡</span><div>Quick ordering<br><small style="color:#687772;font-weight:500">Skip the queue</small></div></div>
+   <div class="float-note note-two"><span>🛍️</span><div>Order confirmed<br><small style="color:#687772;font-weight:500">Track your status</small></div></div>
+  </div>
+ </div>
+</section>
+<div class="container stats"><div class="stats-grid"><div class="stat"><strong>01</strong><span>Browse the menu</span></div><div class="stat"><strong>02</strong><span>Order in advance</span></div><div class="stat"><strong>03</strong><span>Collect and enjoy</span></div></div></div>
+<section id="features">
+ <div class="container"><div class="section-head"><div class="eyebrow">BUILT FOR CAMPUS LIFE</div><h2>A smarter way to grab a bite</h2><p>Less waiting for students. Easier order handling for canteen staff. One simple platform for everyone.</p></div>
+  <div class="features">
+   <article class="feature"><div class="feature-icon">📱</div><h3>Simple online ordering</h3><p>Browse food items, check prices and availability, add favourites to your cart, and place orders before reaching the counter.</p></article>
+   <article class="feature"><div class="feature-icon">⏱️</div><h3>Save your break time</h3><p>Order ahead to reduce queueing and make the most of short college breaks.</p></article>
+   <article class="feature"><div class="feature-icon">🔔</div><h3>Order status updates</h3><p>Know whether your order is pending, being prepared, or ready for collection.</p></article>
+   <article class="feature"><div class="feature-icon">🥗</div><h3>Live menu availability</h3><p>See available items and prices so you can choose what works for you.</p></article>
+   <article class="feature"><div class="feature-icon">🧾</div><h3>Organised order handling</h3><p>A centralised view helps canteen administrators manage incoming orders more efficiently.</p></article>
+   <article class="feature"><div class="feature-icon">🔐</div><h3>Separate user access</h3><p>Student and administrator interfaces keep ordering and canteen management tasks organised.</p></article>
+  </div>
+ </div>
+</section>
+<section class="menu-section" id="menu">
+ <div class="container"><div class="section-head"><div class="eyebrow">A LITTLE SOMETHING FOR EVERYONE</div><h2>Popular at the canteen</h2><p>Here’s a sample menu to preview the ordering experience. Items and prices can be customised for your college.</p></div>
+  <div class="menu-grid">
+   <article class="menu-card"><div class="menu-image bg1">🥪</div><div class="menu-content"><h3>Veg Sandwich</h3><p>Toasted, crisp and freshly made</p><div class="menu-bottom"><strong>₹40</strong><button class="add-btn" aria-label="Add Veg Sandwich" onclick="addItem('Veg Sandwich')">+</button></div></div></article>
+   <article class="menu-card"><div class="menu-image bg2">🍛</div><div class="menu-content"><h3>Kerala Meals</h3><p>A comforting, filling lunch</p><div class="menu-bottom"><strong>₹70</strong><button class="add-btn" aria-label="Add Kerala Meals" onclick="addItem('Kerala Meals')">+</button></div></div></article>
+   <article class="menu-card"><div class="menu-image bg3">🥟</div><div class="menu-content"><h3>Samosa</h3><p>A crispy snack for your break</p><div class="menu-bottom"><strong>₹15</strong><button class="add-btn" aria-label="Add Samosa" onclick="addItem('Samosa')">+</button></div></div></article>
+  </div>
+ </div>
+</section>
+<section id="how"><div class="container"><div class="section-head"><div class="eyebrow">THREE SIMPLE STEPS</div><h2>Your food, on your time</h2><p>Designed to make the everyday canteen visit a little smoother.</p></div>
+ <div class="how-grid"><div class="step"><div class="step-number">1</div><h3>Choose your food</h3><p>Explore the menu and check item prices and availability.</p></div><div class="step"><div class="step-number">2</div><h3>Place your order</h3><p>Add items to your order and submit it ahead of your break.</p></div><div class="step"><div class="step-number">3</div><h3>Collect and enjoy</h3><p>Check your order status and collect your food when it’s ready.</p></div></div>
+</div></section>
+<section class="cta"><div class="container"><div class="cta-panel"><div><h2>Make your next break count.</h2><p>Less waiting at the counter. More time for what matters.</p></div><a class="btn" href="#menu">See the sample menu <span>→</span></a></div></div></section>
+</main>
+<footer><div class="container footer-row"><div class="brand"><span class="brand-mark">🍃</span><span>Smart<span>Canteen</span></span></div><span>Made for a better campus canteen experience.</span><span>© <span id="year"></span> SmartCanteen Project</span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const toggle=document.getElementById('menuToggle'), links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{links.classList.toggle('open');toggle.textContent=links.classList.contains('open')?'✕':'☰'});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.textContent='☰'}));
+let toastTimer;
+function addItem(item){const toast=document.getElementById('toast');toast.textContent=`${item} added to your sample order!`;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2400)}
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
